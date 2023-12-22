@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/1e30c8571a.js" crossorigin="anonymous"></script>
+  <title>Bulb</title>
+  <style>
+    body {
+      background-color: black;
+    }
+    :root{
+      --font:1.5rem;
+    }
+    nav{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap:20px;
+      font-size: var(--font);
+      color: white;
+      font-weight: 700;
+      height: 100px;
+    }
+
+    .menu{
+      display: flex;
+      gap: 5vw;
+      font-size: var(--font);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .box {
+      height: calc(90vh - 100px);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+    #logo {
+      height: 300px;
+      width: 300px;
+      filter: none;
+    }
+
+    #btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      font-weight: 700;
+      background-color: rgb(178, 178, 178);
+    }
+
+    footer{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .footer{
+      color:white;
+      font-size: 2rem;
+      text-align: center;
+      width: 100%;
+    }
+    .menu i{
+      display: none;
+    }
+
+    @media (max-width:600px) {
+      .menu i{
+        display: block;
+      }
+
+      .menu span{
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="mainlogo">Logo</div>
+      <div class="menu">
+        <span>Home</span>
+        <span>Contact</span>
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+
+  <div class="box">
+    <div class="image">
+      <img src="Comps/Bulb.png" alt="Bulb" id="logo" />
+    </div>
+    <button onclick="ClickMe()" id="btn">ClickMe</button>
+  </div>
+
+  <footer>
+    <div class="footer">©copyright 2023 By RayAnnCode</div>
+  </footer>
+  <script>
+    let logo = document.getElementById("logo");
+    let btn = document.getElementById("btn");
+
+    function ClickMe() {
+      let randColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      if (logo.style.filter === "none" || logo.style.filter === "") {
+        logo.style.filter = `drop-shadow(0px 0px 20px ${randColor})`;
+        btn.style.backgroundColor = randColor;
+      } else {
+        logo.style.filter = "none";
+        btn.style.backgroundColor = "rgb(178, 178, 178)"; 
+      }
+    }
+  </script>
+</body>
+</html>
